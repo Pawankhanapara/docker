@@ -6,9 +6,9 @@ pipeline {
     }
      agent any
     stages {
-              stage('Cloning Git') {
+              stage('checkout') {
                 steps {
-                     git([url: 'https://github.com/Pawankhanapara/docker.git', branch: 'main', credentialsId: 'github'])
+                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Pawankhanapara/docker']]])
                 }
                 }
             stage('docker image build') {
