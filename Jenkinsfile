@@ -18,13 +18,13 @@ node {
     }
 
     stage('Build image') {
-         
+         step{
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("mynginx")
+        app = docker.build("mynginx/docker")
           
-         
+         }
     }
 
 }
