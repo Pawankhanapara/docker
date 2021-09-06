@@ -21,7 +21,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("mynginx/docker")
+        app = docker.build("docker/mynginx")
     }
 
     stage('Test image') {
