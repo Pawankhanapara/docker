@@ -9,10 +9,10 @@ node {
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
          stage('Cloning Git') {
-                steps {
+                
                      git([url: 'https://github.com/Pawankhanapara/docker.git', branch: 'main', credentialsId: 'github'])
                       checkout scm
-                }
+                
                 }
 
         
