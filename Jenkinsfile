@@ -11,7 +11,7 @@ pipeline {
                      git([url: 'https://github.com/Pawankhanapara/docker.git', branch: 'main', credentialsId: 'github'])
                 }
                 }
-            stage('build') {
+            stage('docker image build') {
                 steps {
                     sh "docker build -t mynginx Dockerfile"
                     sh "docker run --name mynginx1 -dp 8081:80 mynginx"
