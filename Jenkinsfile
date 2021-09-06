@@ -1,10 +1,16 @@
 pipeline {  
     environment {
-    registry = "pawankhanaparazymr/repository_name"
+    registry = "pawankhanaparazymr/mynginx"
     registryCredential = 'docker_id'
+    dockerImage = ''
     }
      agent { dockerfile true }
     stages {
+              stage('Cloning Git') {
+                steps {
+                     git([url: 'https://github.com/Pawankhanapara/docker.git', branch: 'main', credentialsId: 'github'])
+                }
+                }
             stage('build') {
                 steps {
                     sh 'docker build -t mynginx .'
