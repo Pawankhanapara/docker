@@ -18,18 +18,13 @@ node {
     }
 
     stage('Build image') {
+         steps{
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
         app = docker.build("mynginx")
+              sh 'docker run --name mynginx1 -dp 8081:80 mynginx'
+         }
     }
 
-    stage('Test image') {
-        /* Ideally, we would run a test framework against our image.
-         * For this example, we're using a Volkswagen-type approach ;-) */
-
-        
-            sh 'docker run --name mynginx1 -dp 8081:80 mynginx'
-        
-    }
 }
