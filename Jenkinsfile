@@ -13,8 +13,7 @@ pipeline {
                 }
             stage('docker image build') {
                 steps {
-                    sh " docker build -t mynginx Dockerfile "
-                    sh " docker run --name mynginx1 -dp 8081:80 mynginx "
+                    sh 'dockerpush.sh'
                }
             }
             stage('push'){
