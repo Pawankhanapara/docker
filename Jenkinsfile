@@ -2,7 +2,7 @@ node
 {
    stage('SCM Checkout')
    {
-       git branch: 'main', credentialsId: 'git-cred', url: 'https://github.com/Siddharthalhat001/docker-task-1.git'
+        git([url: 'https://github.com/Pawankhanapara/docker.git', branch: 'main', credentialsId: 'github'])  }
    }
    stage('Build Docker Image')
    {
