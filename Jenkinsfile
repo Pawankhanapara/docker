@@ -8,4 +8,4 @@ node
    {
        sh "docker build -t pawankhanaparazymr/mynginx . "
    }
-   }
+}
