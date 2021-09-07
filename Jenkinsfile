@@ -11,6 +11,6 @@ node
    }
    stage('Build Docker Image')
    {
-       sh "docker build -t pawankhanaparazymr/mynginx . " , registryCredential
+       sh "docker build -t mynginx . " 
    }
 }
