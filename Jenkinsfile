@@ -6,6 +6,6 @@ node
    }
    stage('Build Docker Image')
    {
-       sh "docker build -t pawankhanaparazymr/mynginx . "
+       sh "docker build -t pawankhanaparazymr/mynginx . " , credentialsId: 'docker_id'
    }
 }
