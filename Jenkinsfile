@@ -11,11 +11,7 @@ pipeline {
               git([url: 'https://github.com/Pawankhanapara/docker.git', branch: 'main', credentialsId: 'github'])    }
         } 
         stage('Building our image') { 
-            steps { 
-                script { 
-                    dockerImage = docker.build  "mynginx" 
-                }
-            } 
+           sh "docker build -t mynginx ."
         }
     }
 }
