@@ -8,11 +8,24 @@ pipeline {
     stages { 
         stage('Cloning our Git') { 
             steps { 
-              git([url: 'https://github.com/Pawankhanapara/docker.git', branch: 'main', credentialsId: 'github'])    }
+              git([url: 'https://github.com/Pawankhanapara/docker.git', branch: 'main', credentialsId: 'github'])            }
         } 
         stage('Building our image') { 
-           sh "docker build -t mynginx ."
+            steps { 
+                script { 
+                    dockerImage = docker.build registry + "mynginx"
+                }
+            } 
         }
+        stage('Deploy our image') { 
+            steps { 
+                script { 
+                    docker.withRegistry( '', registryCredential ) { 
+                        dockerImage.push() 
+                    }
+                } 
+            }
+        } 
     }
 }
 
